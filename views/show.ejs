@@ -1,0 +1,42 @@
+<% include ./partials/header %>
+
+<div class="ui main text container segment">
+    <div class="ui huge header"><%=recipe.title%></div>
+    <div class="ui top attached">
+        <div class="item">
+           <img class="ui centered rounded image" src="<%=recipe.image%>">
+           <div class="content">
+             <span><%=recipe.created.toDateString()%></span>
+           </div>
+           <div class="ui container">
+           <table class="ui inverted unstackable rounded table">
+            <thead>
+             <tr class="yelhead">
+              <th>Difficulty</th>
+              <th>Preparation</th>
+              <th>Cooking</th>
+              <th>Portion</th>
+             </tr>
+            </thead>
+            <tbody id="yelbody">
+             <tr>
+              <td><%=recipe.difficulty%></td>
+              <td><%=recipe.preparation%> minutes</td>
+              <td><%=recipe.cooking%> minutes</td>
+              <td><%=recipe.portion%> persons</td>
+             </tr>
+            </tbody>
+           </table>
+           </div>
+           <div class="description">
+           <p><%-recipe.body%></p> 
+           </div>
+           <a class="ui brown inverted button" href="/recipes/<%=recipe._id %>/edit">Edit</a>
+             <form id="delete" action="/recipes/<%=recipe._id %>?_method=DELETE" method="POST">
+                 <button class="ui red basic button">Delete</button>
+             </form>
+        </div>
+    </div>
+</div>    
+
+<% include ./partials/footer %>

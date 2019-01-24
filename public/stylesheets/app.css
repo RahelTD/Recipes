@@ -1,0 +1,60 @@
+.container.main {
+    margin-top: 7em;
+}
+
+#navbar {
+    color: white;
+    /*text-shadow: 1px 1px 1px #000;*/
+    background-color: #660000;
+    background-image: url("https://www.transparenttextures.com/patterns/argyle.png");
+}
+
+.huge.header {
+    color: #4c0000;
+}
+
+i.icon {
+    font-size: 2em;   
+}
+
+.red {
+    color: #8b3e2f;
+}
+
+#delete {
+    display: inline;
+    color: #660000;
+}
+
+.ui.inverted.table {
+    width: 400px;
+    text-align: center;
+    float: right;
+}
+
+.ui.inverted.table th {
+    color: #4c0000 !important;
+}
+
+.ui.table thead {
+    background-color: #e5ba33;
+    color: #4c0000;
+}
+
+#yelbody {
+    background-color: rgb(255, 210, 76);
+    color: #4c0000;
+}
+
+.fields {
+    color: #4c0000;
+}
+
+#title {
+    color: #4c0000;
+}
+
+.ui.container.segment {
+    margin: auto;
+    padding: auto;
+}
