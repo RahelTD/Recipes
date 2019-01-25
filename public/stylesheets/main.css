@@ -1,3 +1,13 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+/* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
 .container.main {
     margin-top: 7em;
 }
@@ -13,7 +23,7 @@
     color: #4c0000;
 }
 
-i.icon {
+.icon {
     font-size: 2em;   
 }
 

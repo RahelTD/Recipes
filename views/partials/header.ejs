@@ -2,14 +2,47 @@
     <head>
         <title>Recipes</title>
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-        <link rel="stylesheet" type="text/css" href="/stylesheets/app.css"> 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+       <link rel="stylesheet" type="text/css" href="/stylesheets/main.css"> 
     </head>
     <body>
-      <div class="ui fixed inverted red menu" id="navbar">
-          <div class="ui container">
-              <div class="header item"><i class="coffee icon"></i>Recipes site</div>
-              <a href="/" class="item">Home</a>
-              <a href="/recipes/new" class="item">New Recipe</a>
-          </div>
+        
+       <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+         <a class="navbar-brand" href="/">Tea Leaves</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"><i class="fab fa-pagelines mx-2"></i></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item <%= typeof page !== 'undefined' && page === 'recipes' ? 'active' : '' %>">
+            <a href="/recipes" class="nav-link">Home <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+        
+        <ul class="navbar-nav">
+            <% if(!currentUser){ %>
+                <li class="nav-item <%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>">
+                    <a href="/login" class="nav-link">Login</a>
+                </li>   
+                <li class="nav-item <%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>">
+                    <a href="/register" class="nav-link">Sign Up</a>
+                </li> 
+            <% } else { %>
+                <li class="nav-item"><a href="#" class="nav-link">Signed In As <%=currentUser.username%></a></li>
+                <li class="nav-item"><a href="/logout" class="nav-link">Logout</a></li>  
+            <% } %>
+        </ul>
       </div>
-    
+    </nav>
+       
+        <!--full of beans <img src="https://images.unsplash.com/photo-1421986872218-300a0fea5895?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">-->  
+     
+      <!--<div class="ui fixed inverted red menu" id="navbar">-->
+      <!--    <div class="ui container">-->
+      <!--        <div class="header item"><i class="fab fa-pagelines 2rem mx-2"></i> Tea Leaves</div>-->
+            
+      <!--        <a href="/" class="item">Home</a>-->
+      <!--        <a href="/recipes/new" class="item">New Recipe</a>-->
+      <!--    </div>-->
+      <!--</div>-->
