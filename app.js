@@ -5,8 +5,12 @@ mongoose       = require("mongoose"),
 expressSanitizer = require("express-sanitizer"),
 app            = express();
 
+
+var url = process.env.DATABASEURL || "mongodb://localhost:27017/recipes";
+//console.log(process.env.DATABASEURL);
+
 //APP CONFIG
-mongoose.connect("mongodb://localhost:27017/recipes", {useNewUrlParser: true});
+mongoose.connect(url, {useNewUrlParser: true});
 mongoose.set('useFindAndModify', false);
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
