@@ -1,39 +1,63 @@
-<% include ../partials/header %>
-<div class="container">
- <div class="row justify-content-center"> <!--it keeps the form centered-->
-  <div class="col-md-12 text-center">
-   <h1>Create a New Campground</h1>
-  </div>
-    <div class="col-xs-12 col-md-6 col-lg-4">
-       <form action="/campgrounds" method="POST">
-         <div class="form-group">
-          <label for="name">Name</label>
-          <input class="form-control" type="text" placeholder="name" name="name" id="name">
-         </div> 
-         <div class="form-group">
-          <label for="image">Image Url</label>
-          <input class="form-control" type="text" placeholder="image url" name="image" id="image">
-         </div>
-         <div class="form-group">
-           <label for="cost">Cost</label>
-           <input class="form-control" type="number" placeholder="9.99" name="cost" id="cost" step="0.01" min="0" required>
-         </div>
-         <!--<div class="form-group">-->
-         <!-- <label for="location">Location</label>-->
-         <!-- <input class="form-control" type="text" placeholder="location" name="location" id="location">-->
-         <!--</div>-->
-          <div class="form-group">
-           <label for="location">Description</label>
-          <input class="form-control" type="text" placeholder="description" name="description" id="description">
-         </div>
-         <div class="form-group">
-        <button class="btn btn-lg btn-primary btn-block">Submit!</button>
-        </div>
-       </form>  
-      <a href="/campgrounds">Go Back</a>
-    </div>
- </div>
-</div>
- 
+<% include ./partials/header %>
 
-<% include ../partials/footer %>
+ <div class="container">
+    <div class="row justify-content-center">
+     <div class="col-md-12 text-center">
+      <h1>Create a New Recipe</h1>
+      </div>
+      <div style="col-xs-12 col-md-6 col-lg-4">
+      <form action="/recipes" method="POST">
+       <div class="form-group">
+           <label for="title">Title</label>
+        <input class="form-control" type="text" name="title" id="title" placeholder="title">
+        </div>
+        <div class="form-group">
+           <label for="image">Image</label>
+        <input class="form-control" type="text" name="image" id="image" placeholder="image">
+        </div>
+        
+        <div class="container">
+         
+          <div class="dropdown">
+           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name="difficulty">
+              Difficulty</button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Easy</a>
+              <a class="dropdown-item" href="#">Average</a>
+              <a class="dropdown-item" href="#">Difficult</a>
+            </div>
+          </div>
+          
+          <div class="form-group">
+             <label for="preparation">Preparation</label>
+             <input class="form-control" type="text" name="preparation" id="preparation" placeholder="minutes">
+          </div>
+          <div class="form-group">
+             <label for="cooking">Cooking</label>
+             <input class="form-control" type="text" name="cooking" id="cooking" placeholder="minutes">
+          </div>
+          <div class="form-group">
+             <label for="portion">Portion</label>
+             <input class="form-control" type="text" name="portion" id="portion" placeholder="persons">
+          </div>
+          <div class="form-group">
+              <label for="cost">Cost</label>
+              <input class="form-control" type="number" name="cost" id="cost" placeholder="5.00" step="0.01" min="0" required>
+          </div>
+         
+         </div>
+         
+        <div class="form-group">
+           <label for="description">Recipe content</label>
+           <textarea name="description"><%=recipe.description%></textarea>
+        </div>
+        <div class="form-group">
+           <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+        </div>
+    </form>
+    <a href="/recipes">Go Back</a>
+   </div>
+  </div>
+</div>
+
+<% include ./partials/footer %>

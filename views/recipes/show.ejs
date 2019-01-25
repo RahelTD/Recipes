@@ -1,47 +1,69 @@
-<% include ../partials/header %> 
+<% include ./partials/header %>
 
 <div class="container">
-    <div class="row">
-        <div class="card col-lg-3 d-none d-lg-block justify-content-start">
-            <!--<div id="map"></div>-->
-            <img class="img-fluid rounded float-left" src="https://images.unsplash.com/photo-1530907487668-af02f65b4afe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="map black and white">
+  <div class="row">
+   <div class="card col-lg-3 d-none d-lg-block justify-content-start">
+     <img class="img-fluid rounded float-left" src="https://images.unsplash.com/photo-1530907487668-af02f65b4afe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="map black and white">
         <p class="card-text text-center mt-3">
            "A mind that is stretched by a new experience can never go back to its old dimensions."
           </p>
         </div>
-        <div class="col-md-9 justify-content-end">
-          <div class="card mb-3">
-                  <img src="<%= campground.image %>" class="card-img-top" alt="<%= campground.name %>">
-                <div class="card-body">
-                    <p class="float-right">
-                      $<%= campground.cost %>/night
-                    </p>
-                    <h5 class="card-title"><%= campground.name %></h5>
-                    <p>
-                        <em>Submitted By <%=campground.author.username%></em>
-                    </p>
-                    <hr>
-                    <p class="card-text">
-                      <%=campground.description%>
-                    </p>
-                    <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
-                       <a class="btn btn-warning" href="/campgrounds/<%=campground._id%>/edit">Edit</a>
-                       <form action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
-                           <button class="btn btn-danger">Delete</button>
-                       </form>
-                    <% } %>
-                </div>
-            </div>
-            
-        <div class="card">
-          <div class="card-body">
-            <div class="text-right">
-             <a class="btn btn-success" href="/campgrounds/<%= campground._id %>/comments/new">Add New Comment</a>
-            </div>
-            <hr>
         
+   <div class="col-md-9 justify-content-end">
+     <div class="card mb-3">
+          <img src="<%= recipe.image %>" class="card-img-top" alt="<%= recipe.title %>">
+        <div class="card-body">
+            <p class="float-right">
+              $<%= recipe.cost %>/night
+            </p>
+            <h5 class="card-title"><%=recipe.title%></h5>
+            <p>
+                <em>Submitted By <%=recipe.author.username%></em>
+            </p>
+            <hr>
+            <p class="card-text">
+              <%=recipe.description%>
+            </p>
+            <% if(currentUser && recipe.author.id.equals(currentUser._id)){ %>
+               <a class="btn btn-warning" href="/recipes/<%=recipe._id%>/edit">Edit</a>
+               <form action="/recipes/<%=recipe._id%>?_method=DELETE" method="POST">
+                   <button class="btn btn-danger">Delete</button>
+               </form>
+            <% } %>
+        </div>
+    </div>
+
+    <div class="container">
+      <table class="table">
+       <thead>
+        <tr class="yelhead">
+         <th>Difficulty</th>
+         <th>Preparation</th>
+         <th>Cooking</th>
+         <th>Portion</th>
+         <th>Cost</th>
+        </tr>
+       </thead>
+       <tbody id="yelbody">
+        <tr>
+         <td><%=recipe.difficulty%></td>
+         <td><%=recipe.preparation%> minutes</td>
+         <td><%=recipe.cooking%> minutes</td>
+         <td><%=recipe.portion%> persons</td>
+         <td><%=recipe.cost%> euro</td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+           
+   <div class="card">
+     <div class="card-body">
+       <div class="text-right">
+        <a class="btn btn-success" href="/recipes/<%= recipe._id %>/comments/new">Add New Comment</a>
+       </div>
+       <hr>
     <div class="row">
-      <% campground.comments.forEach(function(comment){ %>
+      <% recipe.comments.forEach(function(comment){ %>
             <div class="col-md-12">
               <div class="card">
                 <div class="card-body">
@@ -51,12 +73,10 @@
                   </div>
                   <div class="float-right">
                   <p><%= moment(comment.createdAt).fromNow() %></p>
-                  
                     <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
                       <div class="float-right">
-                       <a href="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>/edit" class="btn btn-sm btn-warning">
-                           Edit</a>
-                        <form class="delete-form" action="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+                       <a href="/recipes/<%=campground._id%>/comments/<%=comment._id%>/edit" class="btn btn-sm btn-warning">Edit</a>
+                        <form class="delete-form" action="/recipes/<%=recipe._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
                             <button class="btn btn-sm btn-danger">DELETE</button>
                         </form>
                        </div>
@@ -73,33 +93,4 @@
   </div>
 </div>
 
-<!--<script>-->
-<!--  function initMap() {-->
-<!--    var lat = <%= campground.lat %>;-->
-<!--    var lng = <%= campground.lng %>;-->
-<!--    var center = {lat: lat, lng: lng };-->
-<!--    var map = new google.maps.Map(document.getElementById('map'), {-->
-<!--        zoom: 8,-->
-<!--        center: center,-->
-<!--        scrollwheel: false-->
-<!--    });-->
-<!--    var contentString = `-->
-<!--      <strong><%= campground.name %><br />-->
-<!--      <%= campground.location %></strong>-->
-<!--      <p><%= campground.description %></p>-->
-<!--    `-->
-<!--    var infowindow = new google.maps.InfoWindow({-->
-<!--      content: contentString-->
-<!--    });-->
-<!--    var marker = new google.maps.Marker({-->
-<!--        position: center,-->
-<!--        map: map-->
-<!--    });-->
-<!--    marker.addListener('click', function() {-->
-<!--      infowindow.open(map, marker);-->
-<!--    });-->
-<!--  }-->
-<!--</script>-->
-<!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkG51lwJtDvYFKTBdRZlhzYg1D4QFsXPU&callback=initMap"></script>-->
-
-<% include ../partials/footer %> 
+<% include ./partials/footer %>
