@@ -8,8 +8,8 @@ var recipeSchema = new mongoose.Schema({
     preparation: String,
     cooking: String,
     portion: String,
-    description: String, //instead of "body"
     cost: Number,
+    description: String, //instead of "body"
     createdAt: { type: Date, default: Date.now },
     author: {
         id: {

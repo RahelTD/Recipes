@@ -1,10 +1,24 @@
-var bodyParser = require("body-parser"),
-methodOverride = require("method-override"),
-express        = require("express"),
-mongoose       = require("mongoose"),
-expressSanitizer = require("express-sanitizer"),
-app            = express();
+var express          = require("express"),
+    app              = express(),
+    expressSanitizer = require("express-sanitizer"),
+    bodyParser       = require("body-parser"),
+    mongoose         = require("mongoose"),
+    passport         = require("passport"),
+    cookieParser     = require("cookie-parser"),
+    LocalStrategy    = require("passport-local"),
+    flash            = require("connect-flash"),   
+    methodOverride   = require("method-override"),
+    Recipe           = require("./models/recipe"),
+    Comment          = require("./models/comment"),
+    User             = require("./models/user"),
+    session          = require("express-session"),
+    seedDB           = require("./seeds"); //how to run seeds file; same dir as app.js
 
+
+// requiring routes
+var commentRoutes    = require("./routes/comments"),
+    recipeRoutes = require("./routes/recipes"),
+    indexRoutes      = require("./routes/index");
 
 var url = process.env.DATABASEURL || "mongodb://localhost:27017/recipes";
 //console.log(process.env.DATABASEURL);
@@ -15,9 +29,33 @@ mongoose.set('useFindAndModify', false);
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(expressSanitizer());
+app.use(cookieParser('secret'));
+//require moment
+app.locals.moment = require('moment')
+
+//PASSPORT CONFIGURATION
+app.use(require("express-session")({
+    secret: "Once again Rusty wins cutest dog!",
+    resave: false,
+    saveUninitialized: false
+}));
+
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+app.use(function(req, res, next){
+    res.locals.currentUser = req.user; 
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
+    next();
+});
 
 
 // Recipe.create({
@@ -31,85 +69,11 @@ app.use(expressSanitizer());
 //   });
 
 
-//RESTful ROUTES
-app.get("/", function(req, res){
-   res.redirect("/recipes"); 
-});
-
-//INDEX ROUTE
-app.get("/recipes", function(req,res){
-    Recipe.find({}, function(err, recipes){
-        if(err){
-            console.log("MADE A MISTAKE");
-        } else {
-            res.render("index", {recipes: recipes});
-        }
-    });
-});
-
-//NEW ROUTE
-app.get("/recipes/new", function(req, res){
-    res.render("new");
-});
-
-//CREATE ROUTE
-app.post("/recipes", function(req, res){
-   req.body.recipe.body = req.sanitize(req.body.recipe.body)
-   Recipe.create(req.body.recipe, function(err, newRecipe){
-       if(err){
-           res.render("new");
-       } else {
-           res.redirect("/recipes");
-       }
-   }); 
-});
-
-//SHOW ROUTE
-app.get("/recipes/:id", function(req, res){
-   Recipe.findById(req.params.id, function(err, foundRecipe){
-      if(err){
-          res.redirect("/recipes");
-      } else {
-          res.render("show", {recipe: foundRecipe})
-      }
-   }); 
-});
-
-//EDIT ROUTE 
-app.get("/recipes/:id/edit", function(req, res){
-   Recipe.findById(req.params.id, function(err, foundRecipe){
-      if(err){
-          res.redirect("/recipes");
-      } else {
-          res.render("edit", {recipe: foundRecipe});
-      }
-   }); 
-});
-
-//UPDATE ROUTE
-app.put("/recipes/:id", function(req, res){
-    req.body.recipe.body = req.sanitize(req.body.recipe.body)
-    Recipe.findByIdAndUpdate(req.params.id, req.body.recipe, function(err, updatedRecipe){
-       if(err){
-           res.redirect("/recipes");
-       } else {
-           res.redirect("/recipes/" + req.params.id);
-       }
-    });
-});
-
-//DESTROY
-app.delete("/recipes/:id", function(req, res){
-    Recipe.findByIdAndRemove(req.params.id, function(err){
-        if(err){
-           res.redirect("/recipes");
-        } else {
-           res.redirect("/recipes"); 
-        }
-    });
-});
-
+// use of express router
+app.use("/", indexRoutes);
+app.use("/recipes", recipeRoutes);
+app.use("/recipes/:id/comments", commentRoutes);
 
 app.listen(process.env.PORT, process.env.IP, function(){
-    console.log("RECIPES' SERVER IS WORKING")
+    console.log("RECIPES' server is working");
 });
