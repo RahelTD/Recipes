@@ -12,25 +12,13 @@ var url = process.env.DATABASEURL || "mongodb://localhost:27017/recipes";
 //APP CONFIG
 mongoose.connect(url, {useNewUrlParser: true});
 mongoose.set('useFindAndModify', false);
+
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 app.use(methodOverride("_method"));
 app.use(expressSanitizer());
 
-//SCHEMA+MODEL
-var recipeSchema = new mongoose.Schema({
-   title: String,
-   image: String,
-   difficulty: String,
-   preparation: String,
-   cooking: String,
-   portion: String,
-   body: String,
-   created: {type: Date, default: Date.now}
-});
-
-var Recipe = mongoose.model("Recipe", recipeSchema);
 
 // Recipe.create({
 //       title: "Pasta al pomodoro",

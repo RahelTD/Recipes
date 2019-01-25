@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Recipes</title>
+        <title>Tea Leaves</title>
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -35,6 +35,19 @@
         </ul>
       </div>
     </nav>
+       
+    <div class="container"> <!--to avoid the line all over the page-->
+     <% if(error && error.length > 0){ %>
+       <div class="alert alert-danger" role="alert">
+           <%= error %>
+       </div>
+     <% } %>
+     <% if(success && success.length > 0){ %>
+       <div class="alert alert-success" role="alert">
+           <%= success %>
+       </div>
+     <% } %>
+    </div>   
        
         <!--full of beans <img src="https://images.unsplash.com/photo-1421986872218-300a0fea5895?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">-->  
      
