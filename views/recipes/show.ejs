@@ -1,21 +1,44 @@
-<% include ./partials/header %>
+<% include ../partials/header %>
 
 <div class="container">
   <div class="row">
-   <div class="card col-lg-3 d-none d-lg-block justify-content-start">
-     <img class="img-fluid rounded float-left" src="https://images.unsplash.com/photo-1530907487668-af02f65b4afe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="map black and white">
-        <p class="card-text text-center mt-3">
-           "A mind that is stretched by a new experience can never go back to its old dimensions."
+   <div class="card card-inverse text-center col-md-3 d-none d-md-block justify-content-around"> 
+     <img class="card-img-top img-fluid mt-4 mr-2" src="https://images.unsplash.com/photo-1516715043227-1cdf27bcd09a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80" alt="leaves of tea on wooden background"><!--img-fluid rounded float-left-->
+        <div class="card-img-overlay ml-2 my-2.5 align-items-center justify-content-center">
+          <p class="card-text text-left">
+          <a class="text-light bg-none" href="#">Breakfasts</a>
+          </p>
+          <p class="card-text text-left">
+          <a class="text-light bg-none" href="#">Smoothies</a>
+          </p>
+          <p class="card-text text-left">
+          <a class="text-light bg-none" href="#">Salads</a>
+          </p>
+          <p class="card-text text-left">
+          <a class="text-light bg-none" href="#">Meals</a>
+          </p>
+          <p class="card-text text-left">
+          <a class="text-light bg-none" href="#">Dressings</a>
+          </p>
+          <p class="card-text text-left">
+          <a class="text-light bg-none" href="#">Soups</a>
+          </p>
+          <p class="card-text text-left">
+          <a class="text-light bg-none" href="#">Snacks</a>
+          </p>
+          <p class="card-text text-left">
+          <a class="text-light bg-none" href="#">Desserts</a>
+          </p>
+          <p class="card-text text-left">
+          <a class="text-light bg-none" href="#">Drinks</a>
           </p>
         </div>
+    </div>
         
-   <div class="col-md-9 justify-content-end">
+   <div class="col-sm-9 col-md-8 justify-content-md-around justify-content-sm-around">
      <div class="card mb-3">
           <img src="<%= recipe.image %>" class="card-img-top" alt="<%= recipe.title %>">
         <div class="card-body">
-            <p class="float-right">
-              $<%= recipe.cost %>/night
-            </p>
             <h5 class="card-title"><%=recipe.title%></h5>
             <p>
                 <em>Submitted By <%=recipe.author.username%></em>
@@ -93,4 +116,4 @@
   </div>
 </div>
 
-<% include ./partials/footer %>
+<% include ../partials/footer %>

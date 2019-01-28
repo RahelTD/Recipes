@@ -40,22 +40,22 @@ body {
 } 
 
 .slideshow li:nth-child(1) { 
-  background-image: url(https://cdn.pixabay.com/photo/2016/01/10/21/05/tea-1132529_960_720.jpg); 
+  background-image: url(https://images.unsplash.com/photo-1542378060-de6ce931a559?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80); 
 }
 .slideshow li:nth-child(2) { 
-  background-image: url(https://cdn.pixabay.com/photo/2017/05/19/07/34/teacup-2325722_960_720.jpg);
+  background-image: url(https://images.unsplash.com/photo-1508014861016-f37cdf89e94d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1464&q=80);
   animation-delay: 10s; 
 }
 .slideshow li:nth-child(3) { 
-  background-image: url(https://cdn.pixabay.com/photo/2016/01/19/18/03/tea-1150046_960_720.jpg);
+  background-image: url(https://images.unsplash.com/photo-1455157823797-3019317cbcf0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80);
   animation-delay: 20s; 
 }
 .slideshow li:nth-child(4) { 
-  background-image: url(https://cdn.pixabay.com/photo/2017/10/04/10/15/peppermint-2815679_960_720.jpg);
+  background-image: url(https://images.unsplash.com/photo-1491720731493-223f97d92c21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1530&q=80);
   animation-delay: 30s; 
 }    
 .slideshow li:nth-child(5) { 
-  background-image: url(https://cdn.pixabay.com/photo/2017/02/24/10/41/tea-2094419_960_720.jpg);
+  background-image: url(https://images.unsplash.com/photo-1522520788364-9eafb7a93216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80);
   animation-delay: 40s; 
 }
 

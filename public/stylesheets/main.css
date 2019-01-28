@@ -68,3 +68,29 @@ body {
     margin: auto;
     padding: auto;
 }
+
+.card-img-overlay p {
+    text-shadow: 2.5px 2.5px 2.5px #000000;
+    font-weight: 200;
+    font-size: medium;
+    padding: auto;
+}
+.card-img-overlay p:hover {
+    color: #ffffff;
+    text-shadow: 2.5px 2.5px 2.5px #000000;
+    font-weight: 200;
+    font-size: medium;
+    padding: auto;
+}
+
+.card-inverse {
+    border: none;
+}
+
+.card-inverse img {
+    padding: 0;
+    min-width: 208px;
+    min-height: 312px;
+    /*991px*/
+}
+

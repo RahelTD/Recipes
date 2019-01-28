@@ -55,7 +55,7 @@ module.exports = {
       res.redirect('back');
     }
   }
-}
+};
 
 
 //all the middleware goes here

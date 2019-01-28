@@ -1,4 +1,4 @@
-<% include ./partials/header %>
+<% include ../partials/header %>
 
 <div class="container">
     <header class="jumbotron">
@@ -29,12 +29,7 @@
                     <a class="card-title" id="title" href="/recipes/<%=recipe._id %>">
                         <h5 class="card-title"><%=recipe.title%></h5>
                         </a>
-                     <span><%=recipe.created.toDateString()%></span>
-                     
-                     <div class="card-text">
-                       <p><%-recipe.body.substring(0, 100) %>...</p>
-                     </div>
-                     
+                    
                      <span>
                         <a class="btn btn-secondary" href="/recipes/<%=recipe._id%>">
                            Read More
@@ -48,4 +43,4 @@
     </div>
 </div>
 
-<% include ./partials/footer %>
+<% include ../partials/footer %>
