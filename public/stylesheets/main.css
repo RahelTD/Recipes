@@ -6,17 +6,29 @@ html {
 body {
 /* Margin bottom by footer height */
   margin-bottom: 60px;
+  font-family: 'Delius', cursive;
 }
 
 .container.main {
     margin-top: 7em;
 }
 
-#navbar {
+#mainNav {
     color: white;
-    /*text-shadow: 1px 1px 1px #000;*/
+    font-size: 1.5rem;
+    font-weight: 100;
+    text-shadow: 1px 1px 1px #000;
     background-color: #660000;
     background-image: url("https://www.transparenttextures.com/patterns/argyle.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+
+#mainNav .nav-link {
+    color: white;
+}
+
+#mainNav .nav-link:hover {
+    font-weight: bolder;
 }
 
 .huge.header {
