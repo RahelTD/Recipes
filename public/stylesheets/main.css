@@ -28,7 +28,7 @@ body {
 }
 
 #mainNav .nav-link:hover {
-    font-weight: bolder;
+    font-weight: bold;
 }
 
 .huge.header {
@@ -81,20 +81,6 @@ body {
     padding: auto;
 }
 
-.card-img-overlay p {
-    text-shadow: 2.5px 2.5px 2.5px #000000;
-    font-weight: 200;
-    font-size: medium;
-    padding: auto;
-}
-.card-img-overlay p:hover {
-    color: #ffffff;
-    text-shadow: 2.5px 2.5px 2.5px #000000;
-    font-weight: 200;
-    font-size: medium;
-    padding: auto;
-}
-
 .card-inverse {
     border: none;
 }
@@ -105,4 +91,18 @@ body {
     min-height: 312px;
     /*991px*/
 }
+.card-inverse li {
+    line-height: 2;
+    font-size: 16px;
+    text-shadow: 2.5px 2.5px 2.5px #000000;
+    font-weight: 400;
+    padding: auto;
+}
 
+.card-inverse li:hover {
+    color: #ffffff;
+    text-shadow: 2.5px 2.5px 2.5px #000000;
+    font-weight: 400;
+    font-size: 16px;
+    padding: auto;
+}

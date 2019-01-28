@@ -1,41 +1,27 @@
 <% include ../partials/header %>
 
 <div class="container">
-  <div class="row">
-   <div class="card card-inverse text-center col-md-3 d-none d-md-block justify-content-around"> 
+ <div class="row">
+  <div class="col-lg-3 d-none d-lg-block justify-content-between">
+   <div class="card card-inverse text-center "> 
      <img class="card-img-top img-fluid mt-4 mr-2" src="https://images.unsplash.com/photo-1516715043227-1cdf27bcd09a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80" alt="leaves of tea on wooden background"><!--img-fluid rounded float-left-->
-        <div class="card-img-overlay ml-2 my-2.5 align-items-center justify-content-center">
-          <p class="card-text text-left">
-          <a class="text-light bg-none" href="#">Breakfasts</a>
-          </p>
-          <p class="card-text text-left">
-          <a class="text-light bg-none" href="#">Smoothies</a>
-          </p>
-          <p class="card-text text-left">
-          <a class="text-light bg-none" href="#">Salads</a>
-          </p>
-          <p class="card-text text-left">
-          <a class="text-light bg-none" href="#">Meals</a>
-          </p>
-          <p class="card-text text-left">
-          <a class="text-light bg-none" href="#">Dressings</a>
-          </p>
-          <p class="card-text text-left">
-          <a class="text-light bg-none" href="#">Soups</a>
-          </p>
-          <p class="card-text text-left">
-          <a class="text-light bg-none" href="#">Snacks</a>
-          </p>
-          <p class="card-text text-left">
-          <a class="text-light bg-none" href="#">Desserts</a>
-          </p>
-          <p class="card-text text-left">
-          <a class="text-light bg-none" href="#">Drinks</a>
-          </p>
+        <div class="card-img-overlay align-items-center justify-content-center">
+         <ul class="list-unstyled card-text text-left mx-2 my-3">
+           <li><a class="card-link text-light bg-none" href="#">Breakfasts</a></li>
+           <li><a class="card-link text-light bg-none" href="#">Smoothies</a></li>
+           <li><a class="card-link text-light bg-none" href="#">Salads</a></li>
+           <li><a class="card-link text-light bg-none" href="#">Meals</a></li>
+           <li><a class="card-link text-light bg-none" href="#">Dressings</a></li>
+           <li><a class="card-link text-light bg-none" href="#">Soups</a></li>
+           <li><a class="card-link text-light bg-none" href="#">Snacks</a></li>
+           <li><a class="card-link text-light bg-none" href="#">Desserts</a></li>
+           <li><a class="card-link text-light bg-none" href="#">Drinks</a></li>
+         </ul>
         </div>
     </div>
-        
-   <div class="col-sm-9 col-md-8 justify-content-md-around justify-content-sm-around">
+ </div>
+ 
+   <div class="col-md-9 justify-content-between">
      <div class="card mb-3">
           <img src="<%= recipe.image %>" class="card-img-top" alt="<%= recipe.title %>">
         <div class="card-body">
@@ -44,6 +30,29 @@
                 <em>Submitted By <%=recipe.author.username%></em>
             </p>
             <hr>
+            <div class="container">
+              <table class="table">
+               <thead>
+                <tr class="yelhead">
+                 <th>Difficulty</th>
+                 <th>Preparation</th>
+                 <th>Cooking</th>
+                 <th>Portion</th>
+                 <th>Cost</th>
+                </tr>
+               </thead>
+               <tbody id="yelbody">
+                <tr>
+                 <td><%=recipe.difficulty%></td>
+                 <td><%=recipe.preparation%> minutes</td>
+                 <td><%=recipe.cooking%> minutes</td>
+                 <td><%=recipe.portion%> persons</td>
+                 <td><%=recipe.cost%> euro</td>
+                </tr>
+               </tbody>
+              </table>
+             </div>
+           <hr> 
             <p class="card-text">
               <%=recipe.description%>
             </p>
@@ -55,29 +64,6 @@
             <% } %>
         </div>
     </div>
-
-    <div class="container">
-      <table class="table">
-       <thead>
-        <tr class="yelhead">
-         <th>Difficulty</th>
-         <th>Preparation</th>
-         <th>Cooking</th>
-         <th>Portion</th>
-         <th>Cost</th>
-        </tr>
-       </thead>
-       <tbody id="yelbody">
-        <tr>
-         <td><%=recipe.difficulty%></td>
-         <td><%=recipe.preparation%> minutes</td>
-         <td><%=recipe.cooking%> minutes</td>
-         <td><%=recipe.portion%> persons</td>
-         <td><%=recipe.cost%> euro</td>
-        </tr>
-       </tbody>
-      </table>
-     </div>
            
    <div class="card">
      <div class="card-body">
