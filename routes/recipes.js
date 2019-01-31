@@ -9,7 +9,7 @@ var { isLoggedIn, checkUserRecipe, checkUserComment, isAdmin, isSafe } = middlew
 // Define escapeRegex function for search feature
 function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
-};
+}
 
 //INDEX - show all the recipes
 router.get("/", function(req, res){
@@ -82,7 +82,7 @@ router.get("/:id", function(req, res){
             req.flash('error', 'Sorry, that recipe does not exist!');
             return res.redirect('/recipes');
         }else{
-            console.log(foundRecipe)
+            console.log(foundRecipe);
             //render show template with that recipe
             res.render("recipes/show", {recipe: foundRecipe});
         }
@@ -139,7 +139,7 @@ router.delete("/:id", isLoggedIn, checkUserRecipe, function(req, res){
             res.redirect('/recipes');
           });
       }
-    })
+    });
 });
 //   Campground.findByIdAndRemove(req.params.id, function(err){
       

@@ -14,7 +14,7 @@ module.exports = {
       if(err || !foundRecipe){
           console.log(err);
           req.flash('error', 'Sorry, that recipe does not exist!');
-          res.redirect('/campgrounds');
+          res.redirect('/recipes');
       } else if(foundRecipe.author.id.equals(req.user._id) || req.user.isAdmin){
           req.recipe = foundRecipe;
           next();

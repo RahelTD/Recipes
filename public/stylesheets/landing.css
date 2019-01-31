@@ -1,5 +1,10 @@
 body {
     background-color: #000;
+    font-family: 'Delius', cursive;
+    color: white;
+    text-shadow: 0px 4px 3px rgba(102, 0, 0, 0.6),
+                 0px 8px 13px rgba(102, 0, 0, 0.2),
+                 0px 18px 23px rgba(102, 0, 0, 0.1);
 }
 
 #landing-header {
@@ -9,8 +14,14 @@ body {
   padding-top: 40vh;
 }
 
-#landing-header h1 {
-  color: #fff;
+.btn{
+  background-color: #660000;
+  color: white;
+  text-shadow: 1px 1px 1px rgb(0, 0, 0);
+}
+
+.btn:hover {
+  text-shadow: 1px 1px 1px #fff;
 }
 
 .slideshow { 
