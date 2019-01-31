@@ -3,7 +3,7 @@
 <div class="container">
  <div class="row">
   <div class="col-lg-3 d-none d-lg-block justify-content-between">
-   <div class="card card-inverse text-center "> 
+   <div class="card border-0 card-inverse text-center "> 
      <img class="card-img-top img-fluid mt-4 mr-2" src="https://images.unsplash.com/photo-1516715043227-1cdf27bcd09a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80" alt="leaves of tea on wooden background"><!--img-fluid rounded float-left-->
         <div class="card-img-overlay align-items-center justify-content-center">
          <ul class="list-unstyled card-text text-left mx-2 my-3">
@@ -22,14 +22,13 @@
  </div>
  
    <div class="col-md-9 justify-content-between">
-     <div class="card mb-3">
+     <div class="card border-0 mb-3">
+         <h1 class="card-title"><%=recipe.title%></h1>
           <img src="<%= recipe.image %>" class="card-img-top" alt="<%= recipe.title %>">
         <div class="card-body">
-            <h5 class="card-title"><%=recipe.title%></h5>
             <p>
                 <em>Submitted By <%=recipe.author.username%></em>
             </p>
-            <hr>
             <div class="container">
               <table class="table">
                <thead>
@@ -65,7 +64,7 @@
         </div>
     </div>
            
-   <div class="card">
+   <div class="card border-0">
      <div class="card-body">
        <div class="text-right">
         <a class="btn btn-success" href="/recipes/<%= recipe._id %>/comments/new">Add New Comment</a>
@@ -74,7 +73,7 @@
     <div class="row">
       <% recipe.comments.forEach(function(comment){ %>
             <div class="col-md-12">
-              <div class="card">
+              <div class="card border-0">
                 <div class="card-body">
                   <div class="float-left">
                     <p class="card-title"><%=comment.author.username%></p>

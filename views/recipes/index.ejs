@@ -1,15 +1,15 @@
 <% include ../partials/header %>
 
-<div class="container">
+<div class="container" id="homepage">
     <header class="jumbotron">
       <div class="container">
         <h1>Welcome to Tea Leaves!</h1>
         <p>Check out plenty of recipes from all over the World</p>
-        <p>
-          <a class="btn btn-primary btn-lg" href="/recipes/new">Add New Recipe</a>
+        <p class="d-flex justify-content-end">
+          <a class="btn btn-lg" href="/recipes/new">Add New Recipe</a>
         </p> 
         <p>
-         <form action="/recipes" method="GET" class="form-inline" id="recipe-search">
+         <form class="d-flex justify-content-end" action="/recipes" method="GET" class="form-inline" id="recipe-search">
             <div class="form-group">
               <input type="text" name="search" placeholder="Recipe search..." class="form-control">
             </div>
@@ -22,7 +22,7 @@
     <div class="row text-center">
         <%recipes.forEach(function(recipe){%>
           <div class="col-lg-3 col-md-4 col-sm-6 mb-4"> <!--from bigger to smaller images when we shrink down-->
-            <div class="card">
+            <div class="card border-0">
                       <img src="<%=recipe.image%>" class="card-img-top" alt="<%=recipe.image%>">
 
                   <div class="card-body">
@@ -31,9 +31,9 @@
                         </a>
                     
                      <span>
-                        <a class="btn btn-secondary" href="/recipes/<%=recipe._id%>">
+                        <a class="btn" href="/recipes/<%=recipe._id%>">
                            Read More
-                           <i class="hand point right icon"></i>
+                           <i class="fas fa-angle-right"></i>
                         </a>
                      </span>
                   </div>
