@@ -1,12 +1,12 @@
 <% include ../partials/header %>
 
-<div class="container" id="homepage">
-    <header class="jumbotron">
-      <div class="container">
+<div id="homepage">
+    <header class="jumbotron border-top border-dark jumbotron-fluid">
+      <div class="container container-fluid">
         <h1>Welcome to Tea Leaves!</h1>
         <p>Check out plenty of recipes from all over the World</p>
         <p class="d-flex justify-content-end">
-          <a class="btn btn-lg" href="/recipes/new">Add New Recipe</a>
+          <a class="btn btn-md" href="/recipes/new">Add New Recipe</a>
         </p> 
         <p>
          <form class="d-flex justify-content-end" action="/recipes" method="GET" class="form-inline" id="recipe-search">
@@ -18,29 +18,29 @@
       </div> <!--to maintain the space around title when we shrink it-->
     </header>
         
-        
+    <div class="container">
     <div class="row text-center">
         <%recipes.forEach(function(recipe){%>
           <div class="col-lg-3 col-md-4 col-sm-6 mb-4"> <!--from bigger to smaller images when we shrink down-->
             <div class="card border-0">
-                      <img src="<%=recipe.image%>" class="card-img-top" alt="<%=recipe.image%>">
-
+                <a href="/recipes/<%=recipe._id%>"><img src="<%=recipe.image%>" class="card-img-top" alt="<%=recipe.image%>"></a>
                   <div class="card-body">
                     <a class="card-title" id="title" href="/recipes/<%=recipe._id %>">
                         <h5 class="card-title"><%=recipe.title%></h5>
                         </a>
                     
-                     <span>
-                        <a class="btn" href="/recipes/<%=recipe._id%>">
-                           Read More
-                           <i class="fas fa-angle-right"></i>
-                        </a>
-                     </span>
+                     <!--<span>-->
+                     <!--   <a class="btn" href="/recipes/<%=recipe._id%>">-->
+                     <!--      Read More-->
+                     <!--      <i class="fas fa-angle-right"></i>-->
+                     <!--   </a>-->
+                     <!--</span>-->
                   </div>
               </div>
             </div>
         <% }) %>
     </div>
+  </div>
 </div>
 
 <% include ../partials/footer %>

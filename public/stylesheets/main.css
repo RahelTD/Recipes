@@ -10,12 +10,13 @@ body {
 }
 
 header{
-    background-image: url(https://images.unsplash.com/photo-1508014861016-f37cdf89e94d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1464&q=80);
+    background-image: url("https://images.unsplash.com/photo-1508014861016-f37cdf89e94d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1464&q=80");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     color: white;
     text-shadow: 2px 2px 2px #660000;
+    border-width: medium;
 }
 
 header .btn {
@@ -146,4 +147,11 @@ header .btn {
     font-weight: 400;
     font-size: 16px;
     padding: auto;
+}
+
+@media (min-device-width : 320px) and (max-device-width : 480px) {
+/* Smartphone  */
+}
+@media (min-device-width : 768px) and (max-device-width : 1024px) {
+/* Tablet */
 }
