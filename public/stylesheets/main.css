@@ -35,6 +35,19 @@ header .btn {
     text-shadow: 1px 1px 1px #000;
     background-color: #660000;
     background-image: url("https://www.transparenttextures.com/patterns/argyle.png");
+    width: 100%;
+}
+
+.navbar-brand {
+    font-size: 1.85rem;
+    text-shadow: 2.7px 2.7px 2.7px #000;
+    padding-right: 0.8rem;
+    padding-left: 0.1rem;
+    margin-left: 0;
+}
+
+.icon {
+    font-size: 2em; 
 }
 
 #mainNav .nav-link {
@@ -54,13 +67,13 @@ header .btn {
 }
 
 .card-title {
+    padding-top: 1rem;
     color: #660000;
     text-shadow: 1px 1px 1px #000;
 }
 
 #homepage .card-title:hover{
     font-weight: 900;
-    
     text-decoration: none;
 }
 
@@ -77,34 +90,20 @@ header .btn {
     background-color: rgb(255, 210, 76);
 }
 
-.huge.header {
-    color: #4c0000;
-}
-
-.icon {
-    font-size: 2em;   
-}
-
-.red {
-    color: #8b3e2f;
-}
-
 #delete {
     display: inline;
     color: #660000;
 }
 
-.ui.inverted.table {
-    width: 400px;
+.table {
     text-align: center;
-    float: right;
 }
 
-.ui.inverted.table th {
+.inverted.table th {
     color: #4c0000 !important;
 }
 
-.ui.table thead {
+.inverted.table thead {
     background-color: #e5ba33;
     color: #4c0000;
 }

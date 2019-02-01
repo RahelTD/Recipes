@@ -29,7 +29,10 @@
             <p>
                 <em>Submitted By <%=recipe.author.username%></em>
             </p>
-            <div class="container">
+            
+            <p class="card-text">
+                
+            <div class="container justify-content-center table-responsive-md">
               <table class="table">
                <thead>
                 <tr class="yelhead">
@@ -52,7 +55,7 @@
               </table>
              </div>
            <hr> 
-            <p class="card-text">
+                
               <%=recipe.description%>
             </p>
             <% if(currentUser && recipe.author.id.equals(currentUser._id)){ %>

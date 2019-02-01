@@ -5,10 +5,10 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Delius" rel="stylesheet">
-        <link rel="stylesheet" media="(max-width: 640px)" href="max-640px.css">
-        <link rel="stylesheet" media="(min-width: 320px)" href="min-320px.css">
-        <link rel="stylesheet" media="(orientation: portrait)" href="portrait.css">
-        <link rel="stylesheet" media="(orientation: landscape)" href="landscape.css">
+        <!--<link rel="stylesheet" media="(max-width: 640px)" href="max-640px.css">-->
+        <!--<link rel="stylesheet" media="(min-width: 320px)" href="min-320px.css">-->
+        <!--<link rel="stylesheet" media="(orientation: portrait)" href="portrait.css">-->
+        <!--<link rel="stylesheet" media="(orientation: landscape)" href="landscape.css">-->
        <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" media="screen"> 
        <!--<link rel="stylesheet" href="/stylesheets/print.css" media="print">
        if you want to make a printable version + need to make a print.css file-->
@@ -17,17 +17,18 @@
     <body>
         
       <nav id="mainNav" class="navbar navbar-expand-sm navbar-dark mb-0" role="navigation">
-         <a class="navbar-brand" href="/"><i class="fab fa-pagelines mx-2"></i> Tea Leaves</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-         <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+         <a class="navbar-brand" href="/"><i class="fab fa-pagelines mx-0.7"></i> Tea Leaves</a>
+         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item <%= typeof page !== 'undefined' && page === 'recipes' ? 'active' : '' %>">
             <a href="/recipes" class="nav-link">Home <span class="sr-only">(current)</span></a>
           </li>
         </ul>
+      <button class="navbar-toggler justify-content-end" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+      
         
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav">
             <% if(!currentUser){ %>
                 <li class="nav-item <%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>">
@@ -43,6 +44,7 @@
         </ul>
       </div>
     </nav>
+    
     <div class="container"> <!--to avoid the line all over the page-->
      <% if(error && error.length > 0){ %>
        <div class="alert alert-danger" role="alert">
