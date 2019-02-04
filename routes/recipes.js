@@ -26,7 +26,7 @@ router.post("/", middleware.isLoggedIn, function(req, res){
     var title = req.body.title;
     var image = req.body.image;
     var difficulty = req.body.difficulty;
-    var prep = req.body.preparation;
+    var preparation = req.body.preparation;
     var cooking= req.body.cooking;
     var portion = req.body.portion;
     var cost = req.body.cost;
@@ -36,7 +36,7 @@ router.post("/", middleware.isLoggedIn, function(req, res){
         username: req.user.username
     };
     
-    var newRecipe = {title: title, image: image, difficulty:difficulty, preparation:prep, cooking:cooking, portion: portion, cost:cost, description: desc, author: author};
+    var newRecipe = {title:title, image:image, difficulty:difficulty, preparation:preparation, cooking:cooking, portion:portion, cost:cost, description:desc, author:author};
     //Create a new recipe and save to DB
    Recipe.create(newRecipe, function(err, newlyCreated){
        if(err){
@@ -85,7 +85,7 @@ router.get("/:id/edit", middleware.checkRecipeOwnership, function(req, res){
 //UPDATE - Updates particular recipe, then redirects somewhere 
 router.put("/:id", middleware.checkRecipeOwnership, function(req, res){
         //  var newData = {
-        //      title: req.body.title, image: req.body.image, difficulty: req.body.difficulty, prep: req.body.preparation, cooking: req.body.cooking, portion: req.body.portion, cost: req.body.cost, description: req.body.description};
+        //      title: req.body.title, image: req.body.image, difficulty: req.body.difficulty, preparation: req.body.preparation, cooking: req.body.cooking, portion: req.body.portion, cost: req.body.cost, description: req.body.description};
         
     //find and update the correct recipe
     Recipe.findByIdAndUpdate(req.params.id, req.body.recipe, function(err, recipe){

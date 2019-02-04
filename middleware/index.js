@@ -9,7 +9,7 @@ middlewareObj.checkRecipeOwnership = function(req, res, next){
     if(req.isAuthenticated()){
         Recipe.findById(req.params.id, function(err, foundRecipe){
             if(err){
-              req.flash("error", ">Recipe not found");
+              req.flash("error", "Recipe not found");
               res.redirect("back");
             } else {
                 // does user own the recipe?

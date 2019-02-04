@@ -108,6 +108,10 @@ header .btn {
     color: #4c0000;
 }
 
+#textarea {
+    min-width: 100%;
+}
+
 #yelbody {
     background-color: rgba(255, 210, 76, 0.7);
     color: #4c0000;
