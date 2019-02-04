@@ -33,8 +33,10 @@ app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(expressSanitizer());
 app.use(cookieParser('secret'));
+
+//seedDB(); //seed the database
 //require moment
-app.locals.moment = require('moment')
+app.locals.moment = require('moment');
 
 //PASSPORT CONFIGURATION
 app.use(require("express-session")({

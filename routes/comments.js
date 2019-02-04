@@ -3,10 +3,9 @@ var router = express.Router({mergeParams: true});
 var Recipe = require("../models/recipe");
 var Comment = require("../models/comment");
 var middleware = require("../middleware");
-const { isLoggedIn, checkUserComment, isAdmin } = middleware;
 
 // COMMENTS NEW ROUTE
-router.get("/new", isLoggedIn, function(req, res){
+router.get("/new", middleware.isLoggedIn, function(req, res){
     // find recipe by id and send that through as we render
     console.log(req.params.id);
     Recipe.findById(req.params.id, function(err, recipe){
@@ -19,7 +18,7 @@ router.get("/new", isLoggedIn, function(req, res){
 });
  
 // COMMENTS CREATE ROUTE
-router.post("/", isLoggedIn, function(req, res){
+router.post("/", middleware.isLoggedIn, function(req, res){
     //lookup recipe using ID 
     Recipe.findById(req.params.id, function(err, recipe){
          if(err){
@@ -53,7 +52,7 @@ router.post("/", isLoggedIn, function(req, res){
 
 
 // COMMENTS EDIT ROUTE
-router.get("/:comment_id/edit", isLoggedIn, checkUserComment, function(req, res){
+router.get("/:comment_id/edit", middleware.checkCommentOwnership, function(req, res){
     Comment.findById(req.params.comment_id, function(err, foundComment){
         if(err){
             res.redirect("back");
@@ -64,7 +63,7 @@ router.get("/:comment_id/edit", isLoggedIn, checkUserComment, function(req, res)
 });
 
 // COMMENTS UPDATE ROUTE
-router.put("/:comment_id", isAdmin, function(req, res){
+router.put("/:comment_id",middleware.checkCommentOwnership, function(req, res){
     Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, updatedComment){
         if(err){
            console.log(err);
@@ -76,7 +75,7 @@ router.put("/:comment_id", isAdmin, function(req, res){
 });
 
 // COMMENTS DESTROY ROUTE 
-router.delete("/:comment_id", isLoggedIn, checkUserComment, function(req, res){
+router.delete("/:comment_id", middleware.checkCommentOwnership, function(req, res){
    // find campground, remove comment from comments array, delete comment in db
  //findByIdAndRemove 
 //   Comment.findByIdAndRemove(req.params.comment_id, function(err){

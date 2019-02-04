@@ -2,7 +2,7 @@
 
  <div class="container">
     <div class="row justify-content-center">
-     <div class="col-md-12 text-center"> 
+     <div class="col-md-12 text-center mt-4"> 
      <h1>Edit <%=recipe.title%></h1>
      </div>
      <div style="col-xs-12 col-md-6 col-lg-4">
@@ -18,15 +18,27 @@
         
         <div class="container">
          
-          <div class="dropdown">
-           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name="difficulty">
-              Difficulty</button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Easy</a>
-              <a class="dropdown-item" href="#">Average</a>
-              <a class="dropdown-item" href="#">Difficult</a>
-            </div>
-          </div>
+        <p>
+         <label for="select">Difficulty</label>
+         <select id="select">
+          <option value="<%=recipe.difficulty%>"><%=recipe.difficulty%></option>
+            <optgroup label="How hard is it">
+              <option value="Easy">Easy</option>
+              <option value="Average">Average</option>
+              <option value="Difficult">Difficult</option>
+            </optgroup>
+         </select>
+        </p>
+         
+          <!--<div class="dropdown">-->
+          <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name="difficulty">-->
+          <!--    Difficulty</button>-->
+          <!--    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
+          <!--    <a class="dropdown-item" href="#">Easy</a>-->
+          <!--    <a class="dropdown-item" href="#">Average</a>-->
+          <!--    <a class="dropdown-item" href="#">Difficult</a>-->
+          <!--  </div>-->
+          <!--</div>-->
           
           <div class="form-group">
              <label for="preparation">Preparation</label>
@@ -42,14 +54,14 @@
           </div>
           <div class="form-group">
               <label for="cost">Cost</label>
-              <input class="form-control" type="number" name="cost" id="cost" value="<%=recipe.cost %>" step="0.01" min="0" required>
+              <input class="form-control" type="number" name="cost" id="cost" value="<%=recipe.cost%>" step="0.01" min="0" required>
           </div>
          
          </div>
          
         <div class="form-group">
            <label for="description">Recipe content</label>
-           <textarea name="description"><%=recipe.description%></textarea>
+           <textarea id="textarea" rows="20" name="description"><%=recipe.description%></textarea>
         </div>
         <div class="form-group">
            <button class="btn btn-lg btn-primary btn-block">Update!</button>
