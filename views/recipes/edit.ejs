@@ -1,72 +1,62 @@
 <% include ../partials/header %>
 
  <div class="container">
-    <div class="row justify-content-center">
-     <div class="col-12 text-center mt-4 mb-4"> 
+    <div class="row justify-content-center col-12">
+     <div class="text-center my-4 justify-content-center"> 
      <h1>Edit <%=recipe.title%></h1>
      </div>
-     
+     <div class="col-9">
       <form action="/recipes/<%=recipe._id %>?_method=PUT" method="POST">
-       <div class="form-group col-12">
-           <label for="title">Title</label>
+       <div class="form-group">
+           <label for="title" class="text-center">Title</label>
         <input class="form-control" type="text" name="title" id="title" value="<%=recipe.title%>">
         </div>
         <div class="form-group">
-           <label for="image">Image</label>
+           <label for="image" class="text-center">Image</label>
         <input class="form-control" type="text" name="image" id="image" value="<%=recipe.image%>">
         </div>
         
         <div class="container">
          
         <p>
-         <label for="difficulty">Difficulty</label>
-         <select id="difficulty" class="col-6" type="" name="difficulty" value="<%=recipe.difficulty%>">
+         <label for="difficulty" class="text-center">Difficulty</label>
+         <select id="difficulty" class="col-6 justify-content-center" type="text" name="difficulty" value="<%=recipe.difficulty%>">
           <option value="<%=recipe.difficulty%>"><%=recipe.difficulty%></option>
               <option value="easy">Easy</option>
               <option value="average">Average</option>
               <option value="difficult">Difficult</option>
          </select>
         </p>
-         
-          <!--<div class="dropdown">-->
-          <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name="difficulty">-->
-          <!--    Difficulty</button>-->
-          <!--    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
-          <!--    <a class="dropdown-item" href="#">Easy</a>-->
-          <!--    <a class="dropdown-item" href="#">Average</a>-->
-          <!--    <a class="dropdown-item" href="#">Difficult</a>-->
-          <!--  </div>-->
-          <!--</div>-->
-          
+
           <div class="form-group">
-             <label for="preparation">Preparation</label>
+             <label for="preparation" class="text-center">Preparation</label>
              <input class="form-control" type="text" name="preparation" id="preparation" value="<%=recipe.preparation%>">
           </div>
           <div class="form-group">
-             <label for="cooking">Cooking</label>
+             <label for="cooking" class="text-center">Cooking</label>
              <input class="form-control" type="text" name="cooking" id="cooking" value="<%=recipe.cooking%>">
           </div>
           <div class="form-group">
-             <label for="portion">Portion</label>
+             <label for="portion" class="text-center">Portion</label>
              <input class="form-control" type="text" name="portion" id="portion" value="<%=recipe.portion%>">
           </div>
           <div class="form-group">
-              <label for="cost">Cost</label>
+              <label for="cost" class="text-center">Cost</label>
               <input class="form-control" type="number" name="cost" id="cost" value="<%=recipe.cost%>" step="0.01" min="0" required>
           </div>
          
          </div>
          
         <div class="form-group">
-           <label for="description">Recipe content</label>
-           <textarea id="textarea" rows="20" class="col-xs-12 d-flex p-2" name="description"><%=recipe.description%></textarea>
+           <label for="textarea" class="text-center col-12">Recipe content</label>
+           <textarea id="textarea" rows="20" type="text" id="description" name="description"><%=recipe.description%></textarea>
         </div>
         <div class="form-group">
            <button class="btn btn-lg btn-primary btn-block">Update!</button>
         </div>
     </form>
     <a href="/recipes">Go Back</a>
-   
+   </div>
   </div>
 </div>
 

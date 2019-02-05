@@ -24,7 +24,7 @@
    <div class="col-md-9 justify-content-between">
      <div class="card border-0 mb-3">
          <h1 class="card-title"><%=recipe.title%></h1>
-          <img src="<%= recipe.image %>" class="card-img-top" alt="<%= recipe.title %>">
+          <img src="<%=recipe.image%>" class="card-img-top" alt="<%=recipe.title%>">
         <div class="card-body">
             <p>
                 <em>Submitted By <%=recipe.author.username%></em>
@@ -55,13 +55,12 @@
               </table>
              </div>
            <hr> 
-                
               <%=recipe.description%>
             </p>
             <% if(currentUser && recipe.author.id.equals(currentUser._id)){ %>
-               <a class="btn" id="regularbtn" href="/recipes/<%=recipe._id%>/edit">Edit</a>
+               <a class="btn m-1" id="regularbtn" href="/recipes/<%=recipe._id%>/edit">Edit</a>
                <form action="/recipes/<%=recipe._id%>?_method=DELETE" method="POST">
-                   <button class="btn btn-danger">Delete</button>
+                   <button class="btn btn-danger m-1">Delete</button>
                </form>
             <% } %>
         </div>
@@ -86,9 +85,9 @@
                   <p><%= moment(comment.createdAt).fromNow() %></p>
                     <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
                       <div class="float-right">
-                       <a href="/recipes/<%=recipe._id%>/comments/<%=comment._id%>/edit" class="btn btn-sm" id="regularbtn">Edit</a>
+                       <a href="/recipes/<%=recipe._id%>/comments/<%=comment._id%>/edit" class="btn btn-sm m-1" id="regularbtn">Edit</a>
                         <form class="delete-form" action="/recipes/<%=recipe._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
-                            <button class="btn btn-sm btn-danger">DELETE</button>
+                            <button class="btn btn-sm btn-danger m-1">DELETE</button>
                         </form>
                        </div>
                     <% } %>

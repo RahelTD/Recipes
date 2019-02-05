@@ -25,9 +25,14 @@ router.post("/", middleware.isLoggedIn, function(req, res){
     //get data from FORM and add to recipes ARRAY
     var title = req.body.title;
     var image = req.body.image;
-    var difficulty = req.body.difficulty;
+    var difficulty = 
+    // function getSelectValue() { 
+    //     var difficulty = document.getElementById("difficulty").value;
+    //     console.log(difficulty);
+    // };
+     req.body.difficulty;
     var preparation = req.body.preparation;
-    var cooking= req.body.cooking;
+    var cooking = req.body.cooking;
     var portion = req.body.portion;
     var cost = req.body.cost;
     var desc = req.body.description;

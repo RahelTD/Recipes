@@ -108,8 +108,17 @@ header .btn {
     color: #4c0000;
 }
 
+label {
+    display: block;
+}
+
+#select {
+    min-width: 100%;
+}
+
 #textarea {
     min-width: 100%;
+    width: inherit;
 }
 
 #yelbody {

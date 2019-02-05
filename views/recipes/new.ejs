@@ -1,66 +1,54 @@
 <% include ../partials/header %>
 
  <div class="container">
-    <div class="row justify-content-center">
-     <div class="col-12 text-center mt-4">
+    <div class="row justify-content-center col-12">
+     <div class="text-center my-4 justify-content-center">
       <h1>Create a New Recipe</h1>
       </div>
-      <div style="col-12">
+      <div class="col-9">
       <form action="/recipes" method="POST">
        <div class="form-group">
-           <label for="title">Title</label>
+           <label for="title" class="text-center">Title</label>
         <input class="form-control" type="text" name="title" id="title" placeholder="title">
         </div>
         <div class="form-group">
-           <label for="image">Image</label>
+           <label for="image" class="text-center">Image</label>
         <input class="form-control" type="text" name="image" id="image" placeholder="image">
         </div>
         
         <div class="container">
          
          <p>
-         <label for="select">Difficulty</label>
-         <select id="select">
+         <label for="difficulty" class="text-center">Difficulty</label>
+         <select id="difficulty" class="col-6 justify-content-center" type="text" name="difficulty">
           <option value="difficulty">Choose...</option>
-            <optgroup label="How hard is it">
-              <option value="Easy">Easy</option>
-              <option value="Average">Average</option>
-              <option value="Difficult">Difficult</option>
-            </optgroup>
+              <option value="easy">Easy</option>
+              <option value="average">Average</option>
+              <option value="difficult">Difficult</option>
          </select>
-        </p>
-         
-          <!--<div class="dropdown">-->
-          <!-- <button class="btn btn-secondary dropdown-toggle mb-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name="difficulty">-->
-          <!--    Difficulty</button>-->
-          <!--    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
-          <!--    <a class="dropdown-item" href="#">Easy</a>-->
-          <!--    <a class="dropdown-item" href="#">Average</a>-->
-          <!--    <a class="dropdown-item" href="#">Difficult</a>-->
-          <!--  </div>-->
-          <!--</div>-->
-          
+         </p>
+       
           <div class="form-group">
-             <label for="preparation">Preparation</label>
+             <label for="preparation" class="text-center">Preparation</label>
              <input class="form-control" type="text" name="preparation" id="preparation" placeholder="minutes">
           </div>
           <div class="form-group">
-             <label for="cooking">Cooking</label>
+             <label for="cooking" class="text-center">Cooking</label>
              <input class="form-control" type="text" name="cooking" id="cooking" placeholder="minutes">
           </div>
           <div class="form-group">
-             <label for="portion">Portion</label>
+             <label for="portion" class="text-center">Portion</label>
              <input class="form-control" type="text" name="portion" id="portion" placeholder="persons">
           </div>
           <div class="form-group">
-              <label for="cost">Cost</label>
+              <label for="cost" class="text-center">Cost</label>
               <input class="form-control" type="number" name="cost" id="cost" placeholder="5.00" step="0.01" min="0" required>
           </div>
          
          </div>
          
         <div class="form-group">
-           <label for="textarea">Recipe content</label>
+           <label for="textarea" class="text-center col-12">Recipe content</label>
             <textarea id="textarea" rows="20" type="text" placeholder="description" id="description" name="description"></textarea>
           <!--<input class="form-control" type="text" placeholder="description" name="description" id="description">-->
         </div>
