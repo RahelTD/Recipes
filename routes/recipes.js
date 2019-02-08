@@ -79,8 +79,10 @@ router.get("/:id", function(req, res){
 router.get("/:id/edit", middleware.checkRecipeOwnership, function(req, res){
     Recipe.findById(req.params.id, function(err, foundRecipe){
          if(err){
+             console.log(err);
             res.redirect("/recipes");
         } else {
+            //render show template with that recipe
           res.render("recipes/edit", {recipe: foundRecipe});   
           }
      });
@@ -89,11 +91,10 @@ router.get("/:id/edit", middleware.checkRecipeOwnership, function(req, res){
 
 //UPDATE - Updates particular recipe, then redirects somewhere 
 router.put("/:id", middleware.checkRecipeOwnership, function(req, res){
-        //  var newData = {
-        //      title: req.body.title, image: req.body.image, difficulty: req.body.difficulty, preparation: req.body.preparation, cooking: req.body.cooking, portion: req.body.portion, cost: req.body.cost, description: req.body.description};
-        
+          var newData = {
+              title: req.body.title, image: req.body.image, difficulty: req.body.difficulty, preparation: req.body.preparation, cooking: req.body.cooking, portion: req.body.portion, cost: req.body.cost, description: req.body.description};
     //find and update the correct recipe
-    Recipe.findByIdAndUpdate(req.params.id, req.body.recipe, function(err, recipe){
+    Recipe.findByIdAndUpdate(req.params.id, {$set: newData}, function(err, recipe){
         if(err){
             req.flash("error", err.message);
             res.redirect("/recipes");
